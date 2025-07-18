@@ -39,14 +39,15 @@ if st.button("Get Information"):
             inputs = tokenizer.encode(prompt, return_tensors="pt")
             with torch.no_grad():
                 outputs = model.generate(
-                  
-                    max_new_tokens=100,
-                    pad_token_id=tokenizer.eos_token_id,
-                    do_sample=True,
-                    temperature=0.7,
-                    # Add this line to fix the repetition
-                    repetition_penalty=1.2 
+                    **inputs,
+                    max_new_tokens=100,       # Number of tokens to generate
+                    do_sample=True,           # Enable sampling (optional)
+                    temperature=0.7,          # Controls randomness (lower = less random)
+                    top_k=50,                 # Top-k sampling
+                    top_p=0.95,               # Top-p (nucleus) sampling
+                    eos_token_id=tokenizer.eos_token_id  # Stop when reaching EOS
                 )
+
             
             # Decode and display the result
             result = tokenizer.decode(outputs[0], skip_special_tokens=True)
