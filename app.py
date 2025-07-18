@@ -21,14 +21,14 @@ st.title("💊 Indian Medicines AI Assistant")
 st.write("Enter the name of a medicine to get information about its uses.")
 
 # Get user input
-medicine_name = st.text_input("Enter medicine name:", "paracetamol")
+medicine_name = st.text_input("Enter medecine query:")
 
 # Create a button to trigger the model
 if st.button("Get Information"):
     if medicine_name:
         with st.spinner("Generating response..."):
             # Format the prompt
-            prompt = f"Q: What is the use of {medicine_name}?"
+            prompt = f"Q: {medicine_name}?"
 
             # Tokenize and generate
             inputs = tokenizer.encode(prompt, return_tensors="pt")
