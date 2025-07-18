@@ -39,7 +39,7 @@ if st.button("Get Information"):
             inputs = tokenizer.encode(prompt, return_tensors="pt")
             with torch.no_grad():
                 outputs = model.generate(
-                    inputs,
+                  
                     max_new_tokens=100,
                     pad_token_id=tokenizer.eos_token_id,
                     do_sample=True,
@@ -49,7 +49,7 @@ if st.button("Get Information"):
                 )
             
             # Decode and display the result
-            result = tokenizer.decode(outputs[1], skip_special_tokens=True)
+            result = tokenizer.decode(outputs[0], skip_special_tokens=True)
             
             # ... (rest of the code)
             
