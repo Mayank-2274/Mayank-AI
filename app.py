@@ -28,7 +28,7 @@ if st.button("Get Information"):
     if medicine_name:
         with st.spinner("Generating response..."):
             # Format the prompt
-            prompt = f"Q: {medicine_name}?"
+            prompt = f"Q: Give me precise response for the following query, retrive the medicine data from same row of the following query {medicine_name}?"
 
             # Tokenize and generate
 # Inside your app.py file
@@ -49,7 +49,7 @@ if st.button("Get Information"):
                 )
             
             # Decode and display the result
-            result = tokenizer.decode(outputs[0], skip_special_tokens=True)
+            result = tokenizer.decode(outputs[1], skip_special_tokens=True)
             
             # ... (rest of the code)
             
