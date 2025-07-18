@@ -42,7 +42,7 @@ if st.button("Get Information"):
                     
                     max_new_tokens=100,       # Number of tokens to generate
                     do_sample=True,           # Enable sampling (optional)
-                    temperature=0.7,          # Controls randomness (lower = less random)
+                    temperature=0.1,          # Controls randomness (lower = less random)
                     top_k=50,                 # Top-k sampling
                     top_p=0.95,               # Top-p (nucleus) sampling
                     eos_token_id=tokenizer.eos_token_id  # Stop when reaching EOS
