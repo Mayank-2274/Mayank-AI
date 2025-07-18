@@ -31,16 +31,27 @@ if st.button("Get Information"):
             prompt = f"Q: {medicine_name}?"
 
             # Tokenize and generate
+# Inside your app.py file
+
+# ... (rest of the code)
+
+            # Tokenize and generate
             inputs = tokenizer.encode(prompt, return_tensors="pt")
             with torch.no_grad():
                 outputs = model.generate(
                     inputs,
                     max_new_tokens=100,
-                    pad_token_id=tokenizer.eos_token_id
+                    pad_token_id=tokenizer.eos_token_id,
+                    do_sample=True,
+                    temperature=0.7,
+                    # Add this line to fix the repetition
+                    repetition_penalty=1.2 
                 )
             
             # Decode and display the result
             result = tokenizer.decode(outputs[0], skip_special_tokens=True)
+            
+            # ... (rest of the code)
             
             st.subheader("Model Response:")
             st.write(result)
