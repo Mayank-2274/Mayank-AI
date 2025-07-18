@@ -39,7 +39,7 @@ if st.button("Get Information"):
             inputs = tokenizer.encode(prompt, return_tensors="pt")
             with torch.no_grad():
                 outputs = model.generate(
-                    **inputs,
+                    
                     max_new_tokens=100,       # Number of tokens to generate
                     do_sample=True,           # Enable sampling (optional)
                     temperature=0.7,          # Controls randomness (lower = less random)
